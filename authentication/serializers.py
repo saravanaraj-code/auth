@@ -1,5 +1,6 @@
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.models import User
+from .models import Employee
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
@@ -31,3 +32,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         
         return user
+
+class EmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = '__all__'  # You can specify specific fields if needed
+
